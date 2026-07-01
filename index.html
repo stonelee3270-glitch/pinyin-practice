@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>拼音小课堂</title>
+    <meta name="description" content="适合小学生在手机微信中使用的汉语拼音练习程序" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="practice-panel" aria-label="拼音练习">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">小学汉语拼音</p>
+            <h1>拼音小课堂</h1>
+          </div>
+          <div class="score-card" aria-live="polite">
+            <span>星星</span>
+            <strong id="starCount">0</strong>
+          </div>
+        </header>
+
+        <section class="mini-stats" aria-label="本轮统计">
+          <div>
+            <span>正确</span>
+            <strong id="mobileCorrectCount">0</strong>
+          </div>
+          <div>
+            <span>连续</span>
+            <strong id="mobileStreakCount">0</strong>
+          </div>
+          <div>
+            <span>准确率</span>
+            <strong id="mobileAccuracyText">0%</strong>
+          </div>
+        </section>
+
+        <nav class="mode-tabs" aria-label="练习类型">
+          <button class="mode-tab active" type="button" data-mode="initials">声母</button>
+          <button class="mode-tab" type="button" data-mode="finals">韵母</button>
+          <button class="mode-tab" type="button" data-mode="tones">声调</button>
+          <button class="mode-tab" type="button" data-mode="words">拼读</button>
+        </nav>
+
+        <section class="question-area">
+          <div class="control-row">
+            <div class="level-row">
+              <label for="levelSelect">难度</label>
+              <select id="levelSelect">
+                <option value="easy">基础</option>
+                <option value="normal" selected>进阶</option>
+                <option value="challenge">挑战</option>
+              </select>
+            </div>
+            <div class="round-pill" id="roundText">第 1 题</div>
+          </div>
+
+          <div class="prompt-card">
+            <div class="prompt-label" id="promptLabel">请选择正确读音</div>
+            <button class="speaker" type="button" id="speakButton" aria-label="朗读题目">
+              <span aria-hidden="true">听</span>
+            </button>
+            <div class="question-text" id="questionText">b</div>
+            <div class="hint-text" id="hintText">听一听，再选一选</div>
+          </div>
+
+          <div class="answer-grid" id="answerGrid" aria-label="答案选项"></div>
+
+          <div class="feedback-row" aria-live="polite">
+            <div class="feedback" id="feedback">准备好了吗？选一个答案开始。</div>
+            <button class="next-button" id="nextButton" type="button">下一题</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-panel" aria-label="练习统计">
+        <section class="progress-band">
+          <h2>今日练习</h2>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p id="progressText">0 / 10</p>
+        </section>
+
+        <section class="stats-grid">
+          <div>
+            <span>正确</span>
+            <strong id="correctCount">0</strong>
+          </div>
+          <div>
+            <span>连续答对</span>
+            <strong id="streakCount">0</strong>
+          </div>
+          <div>
+            <span>准确率</span>
+            <strong id="accuracyText">0%</strong>
+          </div>
+        </section>
+
+        <section class="review-box">
+          <h2>错题复习</h2>
+          <ul id="mistakeList">
+            <li>还没有错题</li>
+          </ul>
+        </section>
+
+        <button class="reset-button" id="resetButton" type="button">重新开始</button>
+      </aside>
+    </main>
+
+    <div class="wechat-tip" id="wechatTip" hidden>
+      已适配微信打开。点右上角可以分享给家长或同学。
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
