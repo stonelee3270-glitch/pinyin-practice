@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>拼音反射训练</title>
+    <meta name="description" content="面向小学生的汉语拼音自动识别与拼读反射训练 H5 程序" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="engine.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="trainer-panel" aria-label="拼音反射训练">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Phonics Reflex Engine</p>
+            <h1>拼音反射训练</h1>
+          </div>
+          <div class="score-card" aria-live="polite">
+            <span>能力分</span>
+            <strong id="abilityScore">0.0</strong>
+          </div>
+        </header>
+
+        <section class="hero-metrics" aria-label="核心指标">
+          <div>
+            <span>平均反应</span>
+            <strong id="avgRt">--</strong>
+          </div>
+          <div>
+            <span>目标窗口</span>
+            <strong id="targetWindow">0.5s</strong>
+          </div>
+          <div>
+            <span>训练段位</span>
+            <strong id="rankText">青铜</strong>
+          </div>
+        </section>
+
+        <nav class="level-tabs" aria-label="训练等级">
+          <button class="level-tab active" type="button" data-level="0">L0 感知</button>
+          <button class="level-tab" type="button" data-level="1">L1 合成</button>
+          <button class="level-tab" type="button" data-level="2">L2 扩展</button>
+          <button class="level-tab" type="button" data-level="3">L3 音节</button>
+          <button class="level-tab" type="button" data-level="4">L4 阅读</button>
+        </nav>
+
+        <section class="mode-row" aria-label="训练模块">
+          <button class="mode-chip active" type="button" data-mode="flash">闪卡识别</button>
+          <button class="mode-chip" type="button" data-mode="fusion">整体拼读</button>
+          <button class="mode-chip" type="button" data-mode="mixed">自适应混合</button>
+        </section>
+
+        <section class="question-area">
+          <div class="control-row">
+            <div>
+              <div class="stage-title" id="stageTitle">LEVEL 0：感知层</div>
+              <div class="stage-desc" id="stageDesc">看到字母后，在 0.5 秒内完成识别。</div>
+            </div>
+            <div class="round-pill" id="roundText">第 1 题</div>
+          </div>
+
+          <div class="prompt-card" id="promptCard">
+            <div class="prompt-label" id="promptLabel">视觉 → 声音自动映射</div>
+            <button class="speaker" type="button" id="speakButton" aria-label="朗读题目">
+              <span aria-hidden="true">听</span>
+            </button>
+            <div class="question-text" id="questionText">b</div>
+            <div class="timer-track" aria-label="反应时间窗口">
+              <div class="timer-fill" id="timerFill"></div>
+            </div>
+            <div class="hint-text" id="hintText">不拆读，直接选整体读音。</div>
+          </div>
+
+          <div class="answer-grid" id="answerGrid" aria-label="答案选项"></div>
+
+          <div class="feedback-row" aria-live="polite">
+            <div class="feedback" id="feedback">准备好了吗？点一个答案开始训练。</div>
+            <button class="next-button" id="nextButton" type="button">跳过</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="engine-panel" aria-label="训练引擎状态">
+        <section class="progress-band">
+          <h2>训练引擎</h2>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p id="progressText">0 / 20</p>
+        </section>
+
+        <section class="stats-grid">
+          <div>
+            <span>正确率</span>
+            <strong id="accuracyText">0%</strong>
+          </div>
+          <div>
+            <span>连续反射</span>
+            <strong id="streakCount">0</strong>
+          </div>
+          <div>
+            <span>慢反应</span>
+            <strong id="slowCount">0</strong>
+          </div>
+        </section>
+
+        <section class="matrix-box">
+          <h2>Mastery Matrix</h2>
+          <div class="matrix-list" id="matrixList"></div>
+        </section>
+
+        <section class="review-box">
+          <h2>错误优先队列</h2>
+          <ul id="mistakeList">
+            <li>还没有错题</li>
+          </ul>
+        </section>
+
+        <button class="reset-button" id="resetButton" type="button">重置本轮</button>
+      </aside>
+    </main>
+
+    <div class="wechat-tip" id="wechatTip" hidden>
+      已适配微信打开。建议每天 3 轮，每轮 20 题。
+    </div>
+
+    <script src="engine.js"></script>
+  </body>
+</html>
