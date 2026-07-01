@@ -1,0 +1,17 @@
+{
+  "name": "拼音小课堂",
+  "short_name": "拼音练习",
+  "description": "适合小学生在手机微信中使用的汉语拼音练习程序",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
