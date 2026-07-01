@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="拼音小课堂图标">
+  <rect width="128" height="128" rx="24" fill="#2563eb"/>
+  <circle cx="94" cy="32" r="14" fill="#f3b529"/>
+  <path d="M31 82c8-28 17-42 28-42s20 14 28 42" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M43 65h32" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M36 94h56" fill="none" stroke="#c7f4df" stroke-width="9" stroke-linecap="round"/>
+</svg>
